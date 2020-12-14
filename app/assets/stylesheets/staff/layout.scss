@@ -18,20 +18,23 @@ header {
   padding: $moderate;
   background-color: $dark_cyan;
   color: $very_light_gray;
-  span.logo-mark {
+  a.logo-mark {
+    float: none;
+    text-decoration: none;
     font-weight: bold;
   }
-a {
-  float: right;
-  color: $very_light_gray;
- }
+  a {
+    float: right;
+    color: $very_light_gray;
+    margin-left: $wide;
+  }
 }
 footer {
   bottom: 0;
   position: absolute;
   width: 100%;
   background-color: $dark_gray;
-  color: $very_light_gray;
+  color: $light_gray;
   p {
     text-align: center;
     padding: $moderate;
