@@ -23,7 +23,7 @@ class Staff::SessionsController < Staff::Base
         render action: "new"
       else
         session[:staff_member_id] = staff_member.id
-        #session[:last_access_time] = Time.current
+        session[:last_access_time] = Time.current
         #staff_member.events.create!(type: "logged_in")
         flash.notice = "ログインしました。"
         redirect_to :staff_root
