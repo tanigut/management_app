@@ -18,13 +18,11 @@ class Admin::SessionsController < Admin::Base
     end
     if Admin::Authenticator.new(administrator).authenticate(@form.password)
       if administrator.suspended?
-        #staff_member.events.create!(type: "rejected")
         flash.now.alert = "アカウントが停止されています。"
         render action: "new"
       else
-        session[:administrator_id] = staff_member.id
-        #session[:last_access_time] = Time.current
-        #staff_member.events.create!(type: "logged_in")
+        session[:administrator_id] = administrator.id
+        session[:admin_last_access_time] = Time.current
         flash.notice = "ログインしました。"
         redirect_to :admin_root
       end
@@ -43,5 +41,4 @@ class Admin::SessionsController < Admin::Base
     flash.notice = "ログアウトしました。"
     redirect_to :admin_root
   end
-
 end
